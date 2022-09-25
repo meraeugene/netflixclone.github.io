@@ -488,44 +488,62 @@
     border-bottom: 10px solid rgb(34, 34, 34);
 }
 
-
-
 .six h1{
     text-align: center;
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 40px;
+    font-size: 50px;
 }
 
-.change-width{
+.accordion{
     width: 60%;
-    margin: auto;
+    margin: 3em auto;
 }
 
-.gray-box{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background-color: #303030;
-    padding: 20px;
+.accordion .content-container{
+    background-color: rgb(48, 48, 48);
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
-.gray-box p{
-    font-size: 1.5rem;
+.accordion .content-container .question{
+    font-size: 26px;
+    padding: 20.8px 20px 20.8px 31.2px;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.gray-box .fa{
-    font-size: 1.7rem;
+.accordion .content-container .question::after{
+    content: url(assets/add-line.png);
 }
+
+.accordion .content-container .answer{
+    height: 0;
+    overflow: hidden;
+}
+
+.answer p{
+    font-size: 26px;
+    padding: 31.2px;
+}
+
+
+/* javascript for accordion */
+
+.accordion .content-container.active .answer{
+    height: 100%;
+}
+
+.accordion .content-container.active .question::after{
+    content: url(assets/close-fill.png);
+}
+
 
 .six h3{
     text-align: center;
-    margin-top: 70px;
     font-size: 1.2rem;
     font-weight: 200;
-    margin-bottom: 1em;
+    margin-bottom: 20px;
 }
 
 .six .email-div input{
@@ -539,18 +557,6 @@
 }
 
 @media screen and (min-width: 200px) and (max-width: 1090px){
-    .change-width{
-        width: 90%;
-    }
-    .gray-box{
-        padding: 0.6em;
-    }
-    .gray-box p{
-        font-size: 0.9rem;
-    }
-    .gray-box .fa{
-        font-size: 0.8rem;
-    }
     .six h1{
         font-size: 1.8rem;
     }
@@ -567,6 +573,26 @@
     .six .email-div input{
         width: 100%;
     }
+    .accordion{
+        width: 90%;
+    }
+    .accordion .content-container .question{
+        padding: 10px;
+        font-size: 1rem;
+    }
+    .accordion .content-container .question::after{
+        content: '+';
+        font-size: 1.5rem;
+    }
+    .accordion .content-container.active .question::after{
+        content: '-';
+        font-size: 1.5rem;
+    }
+    .answer p{
+        font-size: 1rem;
+        padding: 15px;
+    }
+    
 }
 
 /* seven section */
